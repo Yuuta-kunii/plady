@@ -1,2 +1,21 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<div class="wrapper">
+  <h1>プレディ有馬</h1>
+  <div class="container">
+    <div class="row">
+      <div col-md-offset-4 col-md-4>
+        <% if loggedin? %> 
+         <%= link_to "entry",new_topic_path,class: "btn btn-block btn-white" %>
+         <br>
+         <%= link_to "librarry",topics_path,class: "btn btn-block btn-white" %>
+         <br>
+         <%= link_to "my librarry",topics_myindex_path,class:"btn btn-block btn-white" %>
+         <br>
+        <% else %>
+         <%= link_to 'sign up',new_user_path,class:"btn btn-block btn-index" %>
+         <br>
+         <%= link_to "log in",login_path,class:'btn btn-block btn-index' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-4">
+        <% @topics.each do |t| %>
+        <div class="topic-index">
+          <p class="topic-author">
+            <%= t.user.name %>
+            </p>
+          <%= image_tag t.image.url,class:"topic-index-image" %> 
+        <div class="topic-description">
+          <p><%= t.description%></p>
+        </div>
+        <% if t.favorited?(current_user) %>
+        <div class="topic-icon">
+          <%= link_to favorites_path(topic_id: t.id),method: :delete do %>
+          <%= image_tag "images/good-red.png",class: "icon" %>
+          <% end %>
+         </div>
+        <% else %>
+        <div class="icon">
+          <%= link_to favorites_path(topic_id: t.id),method: :post do %>
+          <%= image_tag "images/good.png",class:"icon" %>
+          <% end %>
+        <% end %>
+        <%= link_to edit_topic_path(id: t.id) do %>
+         <%= image_tag "images/pencile.png" %>
+        <% end %> 
+        <%= link_to topic_path(id: t.id),method: :delete do %>
+         <%= image_tag "images/box.png",class:"icon" %>
+         <% end %>
+        </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

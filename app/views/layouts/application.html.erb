@@ -10,6 +10,26 @@
   </head>
 
   <body>
+    <% flash.each do |key,value| %>
+    <div class="alert alert-<%= key %>",role="alert"><%= value %></div>
+    <% end %>
+    
+    <nav class="navbar navbar-default navbar-transparent">
+    <% if loggedin? %>
+     <%= link_to logout_path,method: :delete do %>
+     <%= image_tag "images/logout.png",class:"icon" %>
+     <% end %>
+     <%= link_to user_path(current_user.id) do %>
+     <%- image_tag "images/profile.png",class:"icon" %>
+     <% end %>
+    <% end %>
+    </nav>
     <%= yield %>
+    
+    <script>
+      $(function() {
+        $(".alert").fadeOut(5000)
+      });
+    </script>
   </body>
 </html>

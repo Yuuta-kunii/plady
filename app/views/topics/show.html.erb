@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-4">
+        <p><%= @topic.user.name %></p>
+        <%= image_tag @topic.image.url,class:"topic-index-image" %>
+        <%= form_with model: [@topic,@comment] do |f| %>
+        <div class="topic-index">
+          <%= f.label :description,"コメント欄",class:"text-white" %>
+          <%= f.text_area :description %>
+        </div>
+        <%= f.submit "コメント",class:"btn btn block btn-white" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

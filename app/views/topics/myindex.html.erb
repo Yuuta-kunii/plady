@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-4">
+        <%= @mytopics.each do |t| %>
+        <div class="topic-index">
+          <p class="topic-author"><%= t.current_user.name %></p>
+        </div>
+        <div class="topic-image">
+          <%= image_tag t.image.url,class:"topic-index-image" %> 
+        </div>
+        <div class="topic-index">
+          <p><%= t.description%></p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
